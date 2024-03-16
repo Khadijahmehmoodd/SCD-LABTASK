@@ -1,0 +1,23 @@
+name: scdLab
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: node:16
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Display Node.js version
+        run: node --version
+      
+      - name: Install dependencies
+        run: npm install
+      
+      - name: Run tests
+        run: node app.js
